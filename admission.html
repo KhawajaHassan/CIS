@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Portal</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #a51c30;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #e1e1e1;
+            padding: 10px;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .latest-news, .info-sidebar {
+            flex: 1;
+            margin: 0 10px;
+        }
+
+        .latest-news {
+            min-width: 200px;
+        }
+
+        .admission-form {
+            flex: 2;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            min-width: 300px;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #a51c30;
+        }
+
+        form {
+            display: grid;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #a51c30;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: #87202a;
+        }
+
+        .info-sidebar p {
+            margin: 5px 0;
+        }
+
+        footer {
+            background-color: #a51c30;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>University Admission Portal</h1>
+    </header>
+
+    <nav>
+        <a href="#latest-news">Latest News</a>
+        <a href="#admission-form">Apply Now</a>
+        <a href="#info-sidebar">Admission Details</a>
+    </nav>
+
+    <main>
+        <div class="container">
+            <section class="latest-news" id="latest-news">
+                <h2>Latest News</h2>
+                <p>Check out the latest updates and announcements regarding admissions.</p>
+                <!-- Add news content here -->
+            </section>
+
+            <section class="admission-form" id="admission-form">
+                <h2>Admission Form</h2>
+                <form action="/submit-admission" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="full-name">Full Name:</label>
+                        <input type="text" id="full-name" name="full-name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="father-name">Father's Name:</label>
+                        <input type="text" id="father-name" name="father-name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mother-name">Mother's Name:</label>
+                        <input type="text" id="mother-name" name="mother-name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <textarea id="address" name="address" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dob">Date of Birth (DOB):</label>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="qualification">Previous Qualification:</label>
+                        <input type="text" id="qualification" name="qualification" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="marks">Marks and Percentage:</label>
+                        <input type="text" id="marks" name="marks" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mobile">Mobile Number:</label>
+                        <input type="tel" id="mobile" name="mobile" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="guardian">Guardian Details:</label>
+                        <input type="text" id="guardian" name="guardian" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cuet-number">CUET Application Number (optional):</label>
+                        <input type="text" id="cuet-number" name="cuet-number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cuet-marks">CUET Marks (optional):</label>
+                        <input type="text" id="cuet-marks" name="cuet-marks">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="doc-qualification">Upload Previous Qualification Document:</label>
+                        <input type="file" id="doc-qualification" name="doc-qualification" accept=".pdf, .jpg, .png" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="doc-identity">Upload Identity Proof:</label>
+                        <input type="file" id="doc-identity" name="doc-identity" accept=".pdf, .jpg, .png" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="doc-address">Upload Address Proof:</label>
+                        <input type="file" id="doc-address" name="doc-address" accept=".pdf, .jpg, .png" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="doc-dob">Upload Date of Birth Proof:</label>
+                        <input type="file" id="doc-dob" name="doc-dob" accept=".pdf, .jpg, .png" required>
+                    </div><br>
+
+                    <button type="submit">Apply Now</button>
+                </form>
+            </section>
+
+            <section class="info-sidebar" id="info-sidebar">
+                <h2>Admission Details</h2>
+                <p><strong>Last Date of Admission:</strong> October 31, 2024</p>
+                <p><strong>Admission Fee:</strong> $50</p>
+                <p><strong>Late Fee:</strong> $20 (after October 31, 2024)</p>
+                <p><strong>Transaction Portal:</strong> <a href="https://example.com/payment" style="color: #a51c30;">Payment Portal</a></p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 University. All rights reserved.</p>
+    </footer>
+</body>
+</html>

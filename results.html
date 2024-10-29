@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Page -->
+    <div class="container" id="login-page">
+        <h1>Student Login</h1>
+        <form action="/login" method="POST">
+            <label for="username">Name</label>
+            <input type="text" id="username" name="username" placeholder="Enter your name" required>
+
+            <label for="password">Roll Number</label>
+            <input type="password" id="password" name="password" placeholder="Enter your roll number" required>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <!-- Results Page (for demonstration, this content should be loaded after login) -->
+    <div class="container" id="results-page" style="display:none;">
+        <h1>Results for John Doe</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Marks</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mathematics</td>
+                    <td>90</td>
+                    <td>01/09/2024</td>
+                </tr>
+                <tr>
+                    <td>Science</td>
+                    <td>85</td>
+                    <td>05/09/2024</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="#" onclick="showSearchPage()">Search Results by Name or Roll No</a>
+    </div>
+
+    <!-- Search Page (for demonstration, this content should be loaded after login) -->
+    <div class="container" id="search-page" style="display:none;">
+        <h1>Search for Results</h1>
+        <form action="/search" method="POST">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter student name">
+
+            <label for="rollNo">Roll Number</label>
+            <input type="text" id="rollNo" name="rollNo" placeholder="Enter student roll number">
+
+            <button type="submit">Search</button>
+        </form>
+        <div id="search-results" style="display:none;">
+            <h2>Search Results</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Roll No</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>123456</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function showResultsPage() {
+            document.getElementById('login-page').style.display = 'none';
+            document.getElementById('results-page').style.display = 'block';
+        }
+
+        function showSearchPage() {
+            document.getElementById('results-page').style.display = 'none';
+            document.getElementById('search-page').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

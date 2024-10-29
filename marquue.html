@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Marquee</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* Container for the Marquee */
+.marquee {
+    width: 100%;              /* Full width of the screen */
+    overflow: hidden;          /* Hide any overflowing text */
+    background-color: #333;    /* Background color for the marquee */
+    color: white;              /* Text color */
+    padding: 10px 0;           /* Padding for better visibility */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Optional shadow effect */
+}
+
+/* Scrolling Text */
+.marquee p {
+    display: inline-block;
+    white-space: nowrap;       /* Prevent the text from wrapping */
+    padding-left: 100%;        /* Start position outside the container */
+    animation: marquee 15s linear infinite;  /* Apply the animation */
+    font-size: 18px;           /* Font size for the text */
+}
+
+/* Keyframes for the marquee animation */
+@keyframes marquee {
+    0% {
+        transform: translateX(100%); /* Text starts outside on the right */
+    }
+    100% {
+        transform: translateX(-100%); /* Text moves to the left outside the container */
+    }
+}
+
+</style>
+<body>
+
+    <div class="marquee">
+        <p>Welcome to [Your University]! Admissions are open for the Fall Semester 2024. Apply now!</p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+/* footer.css */
+
+/* Footer */
+.footer {
+    position: relative; /* Changed to relative to avoid overlap issues */
+    bottom: 0; /* Sticks the footer to the bottom */
+    left: 0; /* Aligns the footer to the left */
+    width: 100%; /* Full width */
+    padding: 20px;
+    background-color: grey; /* A contrasting red color for visibility */
+    color: #fff; /* White text for better contrast */
+    border-top: 2px solid grey; /* A lighter shade for the top border */
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between; /* Space between left and right sections */
+}
+
+.footer-left {
+    flex: 1; /* Takes available space */
+    text-align: left; /* Align text to the left */
+}
+
+.footer-right {
+    flex: 1; /* Takes available space */
+    text-align: right; /* Align text to the right */
+    display: flex; /* Allows for future weather info positioning */
+    align-items: center; /* Centers content vertically */
+    justify-content: flex-end; /* Aligns content to the right */
+}
+
+.footer-left a,
+.footer-left p {
+    color: #fff; /* Ensures links and text are white */
+}
+
+.university-logo {
+    width: 50px; /* Adjust as needed */
+    margin-bottom: 10px; /* Space below the logo */
+}
+
+.footer-left i {
+    margin-right: 5px; /* Space between icon and text */
+    color: #fff; /* Ensures icons are white */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .quick-links {
+        width: 100%; /* Full width on smaller screens */
+        top: auto; /* Reset position */
+        right: auto; /* Reset position */
+        margin: 20px 0; /* Margin above and below */
+    }
+
+    .footer {
+        flex-direction: column; /* Stack footer items on smaller screens */
+        align-items: center; /* Center align items */
+    }
+
+    .footer-left,
+    .footer-right {
+        text-align: center; /* Center text */
+        margin-bottom: 10px; /* Space between footer sections */
+    }
+}

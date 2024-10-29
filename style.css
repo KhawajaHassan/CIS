@@ -1,0 +1,144 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+}
+
+/* Wave Background */
+header {
+  position: relative;
+  width: 100%;
+  padding: 20px 0;
+  background-color: #00274d; /* University-like deep navy blue */
+  color: #fff;
+  overflow: hidden;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-image: url('https://www.svgrepo.com/show/230429/wave.svg'); /* Add a wave SVG */
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+header .logo img {
+  height: 60px;
+  z-index: 2;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  z-index: 2;
+}
+
+header nav ul li {
+  display: inline-block;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 10px 15px;
+  transition: all 0.3s ease;
+}
+
+header nav ul li a:hover {
+  color: #fcbf49; /* University-like gold color for hover */
+}
+
+nav ul li a {
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 5px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect with underline sliding animation */
+nav ul li a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #fcbf49; /* Gold underline on hover */
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+nav ul li a:hover::before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+nav ul li a:hover {
+  color: #fcbf49;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+      flex-direction: column;
+      text-align: center;
+      padding: 10px 0;
+  }
+
+  header .logo img {
+      height: 50px;
+  }
+
+  nav ul {
+      flex-direction: column;
+      gap: 20px;
+  }
+
+  nav ul li a {
+      font-size: 1.2rem;
+  }
+}
+
+/* Adding smooth entrance animation */
+header {
+  animation: slideDown 1s ease-in-out;
+}
+
+@keyframes slideDown {
+  0% {
+      transform: translateY(-100%);
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+/* Wave SVG Styles */
+.svg-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+}
